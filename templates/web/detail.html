@@ -1,0 +1,190 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{#追加当前页的css样式#}
+{%block mylink%}
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/detail.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'web/css/detail-app.css' %}">
+{%endblock%}
+
+{# 加载主体内容 #}
+{%block content%}
+<!-- 主内容区域 -->
+<div class="page-detail app-detail">
+  <div class="container">
+    <!-- 面包屑 导航 -->
+    <div class="ml-nav hidden-xs hidden-sm">
+      <ol class="breadcrumb">
+        <li><a href="{% url 'web:index' %}">首页</a></li>
+        <li><a href="#">{{goods.goods}}</a></li>
+      </ol>
+    </div>
+    <!-- 面包屑 导航 E-->
+    <!-- 产品购买 -->
+    <div class="row">
+      <div class="col-md-5 col-sm-12 col-xs-12">
+        <div class="preview">
+          <!-- Tab panes -->
+          <div class="tab-content preview-booth pt10">
+            <div role="tabpanel" class="tab-pane active mod-pic" id="list-p1">
+              <img src="/static/goods/{{ goods.picname }}" width="375" height="375" class="sImg">
+            </div>
+            <div role="tabpanel" class="tab-pane mod-pic" id="list-p2">
+              <img src="/static/goods/{{goods.picname }}" width="375" height="375" class="sImg">
+            </div>
+          </div>
+
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs preview-thumb clearfix " role="tablist">
+            <li role="presentation" class="active">
+              <a href="#list-p1" aria-controls="list-p1" role="tab" data-toggle="tab">
+                <img src="/static/goods/s_{{ goods.picname }}" style="display: inline;" width="75" height="75">
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#list-p2" aria-controls="list-p2" role="tab" data-toggle="tab">
+                <img src="/static/goods/m_{{ goods.picname }}" style="display: inline;" width="75" height="75">
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+      <div class="col-md-7 col-sm-12 col-xs-12 pt10">
+        <div class="property hidden-xs hidden-sm" id="property">
+          <div class="property-hd">
+            <h1>{{goods.goods}}</h1>
+            <!-- <p class="mod-info active">{{goods.store}} </p> -->
+          </div>
+          <div class="property-sell">
+            <dl class="property-sell-price clearfix">
+              <dt class="vm-metatit" id="J_discountTag">价<span class="s-space"></span><span class="s-space"></span>格：
+              </dt>
+              <dd>
+                <div class="mod-price">
+                  <small>¥</small>
+                  <span id="J_price" class="vm-money">{{goods.price}}</span>
+                </div>
+                <div class="mod-original" id="J_originalPrice" style="display:none;"></div>
+                <div class="mod-activity">
+                </div>
+                <div class="mod-countdown" id="J_discountCountDown" style="display:none;">
+                </div>
+              </dd>
+            </dl>
+            <dl class="property-sell-coupon clearfix" id="J_prodPromo" style="">
+              <dt class="vm-metatit">领<span class="s-space"></span><span class="s-space"></span>券：
+              </dt>
+              <dd>
+                <p id="J_promoInner">
+                  <span class="vm-tag multiple"><em>满699减10.00</em></span>
+                </p>
+                <a class="vm-more" data-mtype="store_de_coupon_more" id="J_promoMore" href="#">更多&gt;</a>
+              </dd>
+            </dl>
+          </div>
+          <div class="property-service">
+            <dl class="property-service-item clearfix">
+              <dt class="vm-metatit">支<span class="s-space"></span><span class="s-space"></span>持：
+              </dt>
+              <dd class="mod-bd" id="J_prodService">
+                <span><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i>花呗分期</span>
+                <span><a href="#" target="_blank"><i class="glyphicon glyphicon-ok-circle"
+                      aria-hidden="true"></i>百城速达</a></span>
+                <span><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i>顺丰包邮</span>
+                <span><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i>7天无理由退货</span>
+              </dd>
+            </dl>
+            <dl class="property-service-provider clearfix">
+              <dt class="vm-metatit">产<span class="s-space"></span><span class="s-space"></span>地：
+              </dt>
+              <dd class="clearfix">
+                <span id="J_installmentInfo"></span>
+                {{ goods.company }}
+              </dd>
+            </dl>
+            <dl class="property-service-provider clearfix">
+              <dt class="vm-metatit">服<span class="s-space"></span><span class="s-space"></span>务：
+              </dt>
+              <dd class="clearfix">
+                <span id="J_installmentInfo"></span>
+                本商品由 魅族 负责发货并提供售后服务
+              </dd>
+            </dl>
+            <dl class="property-service-provider clearfix">
+              <dt class="vm-metatit">简<span class="s-space"></span><span class="s-space"></span>介：
+              </dt>
+              <dd class="clearfix">
+                <span id="J_installmentInfo"></span>
+                {{ goods.content|safe }}
+              </dd>
+            </dl>
+            <dl class="property-service-provider clearfix">
+              <dt class="vm-metatit">数<span class="s-space"></span><span class="s-space"></span>量：
+              </dt>
+              <dd class="clearfix">
+                <span id="J_installmentInfo"></span>
+                {{ goods.store }}
+              </dd>
+            </dl>
+          </div>
+          <div class="property-huabei clearfix">
+            <div class="vm-metatit">花呗分期：</div>
+            <div class="clearfix property-huabei-bd" id="J_huabeiBody">
+              <a data-value="3" class="prop" data-mtype="store_de_hb_3">
+                <span class="vm-periods">¥499.67×3期</span>
+                <span class="vm-rate">免手续费</span>
+              </a>
+              <a data-value="6" class="prop" data-mtype="store_de_hb_6">
+                <span class="vm-periods">¥261.08×6期</span>
+                <span class="vm-rate">含手续费11.24/期</span>
+              </a>
+              <a data-value="12" class="prop" data-mtype="store_de_hb_12">
+                <span class="vm-periods">¥134.29×12期</span>
+                <span class="vm-rate">含手续费9.37/期</span>
+              </a>
+            </div>
+            <a href="#" target="_blank" class="vm-desc">
+              <i class="iconfont-detail icon-question"></i>
+              什么是花呗分期
+            </a>
+          </div>
+          <form method="post" action="{% url 'web:cart_add' goods.id%}">
+            {% csrf_token %}
+            <div class="property-buy">
+              <p class="vm-message" id="J_message"></p>
+              <dl class="property-buy-quantity">
+                <dt class="vm-metatit">数<span class="s-space"></span><span class="s-space"></span>量：</dt>
+                <dd class="clearfix">
+                  <div class="mod-control">
+                    <input type="hidden" value="{{goods.store}}" name="gstore">
+                    <a title="减少" href="javascript:;" class="vm-minus disabled">-</a>
+                    <input value="1" id="J_quantity" data-max="5" type="text" name="m">
+                    <a title="增加" href="javascript:;" class="vm-plus">+</a>
+                  </div>
+                  <div class="goodsinfo" style="color:#d80000"></div>
+                </dd>
+              </dl>
+              <div class="property-buy-action">
+                <button data-mtype="store_de_buy" type="submit" id="J_btnBuy" class="btn btn-danger btn-lg mr20">立即购买</button>
+                <a data-mtype="store_de_cart" href="javascript:void(0);" id="J_btnAddCart" class="btn btn-primary btn-lg hide" style="display:inline-block;"><i></i>加入购物车</a>
+                <span class="vm-service" id="J_panicBuyingWrap"></span>
+              </div>
+            </div>
+          </form>
+    <!-- 产品购买 -->
+  </div>
+  <!-- 漂浮的导航 -->
+</div>
+<!-- 调用函数 -->
+<script type="text/javascript">
+  //nav标签
+  detaNav();
+  //移动端置顶
+  appTopNav();
+  //数量增加减少 
+  addMin();
+  //详情页头导航不固定在顶部
+  topFix();
+</script>
+{%endblock%}

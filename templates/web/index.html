@@ -1,0 +1,409 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{%block content%}
+<!-- 主内容区域 -->
+<div class="mainbody app">
+	<!-- banner 轮播 -->
+	<div class="headBanner">
+		<div class="container-fluid">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner app-banner" role="listbox">
+					<div class="item active">
+						<a href="{% url 'web:detail' 41%}" target="_blank">
+							<img src="{% static 'web/img/banner1.jpg' %}" alt="" class="pcb-img">
+							<img src="{% static 'web/img/app/m1.jpg' %}" alt="" class="appb-img">
+						</a>
+					</div>
+					<div class="item">
+						<a href="{% url 'web:detail' 2%}" target="_blank">
+							<img src="{% static 'web/img/banner2.jpg' %}" alt="" class="pcb-img">
+							<img src="{% static 'web/img/app/m2.jpg' %}" alt="" class="appb-img">
+						</a>
+					</div>
+					<div class="item">
+						<a href="{% url 'web:detail' 27%}" target="_blank">
+							<img src="{% static 'web/img/banner3.jpg' %}" alt="" class="pcb-img">
+							<img src="{% static 'web/img/app/m3.jpg' %}" alt="" class="appb-img">
+						</a>
+					</div>
+					<div class="item">
+						<a href="{% url 'web:detail' 1%}" target="_blank">
+							<img src="{% static 'web/img/banner4.jpg' %}" alt="" class="pcb-img">
+							<img src="{% static 'web/img/app/m4.jpg' %}" alt="" class="appb-img">
+						</a>
+					</div>
+				</div>
+				<!-- Controls -->
+				<div class="hb-control hidden-xs hidden-sm">
+					<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div><!-- banner 轮播 E-->
+
+	<!-- 移动端 分类导航 -->
+	<div class="channel">
+		<div class="row orient-h clearfix">
+			<div class="item">
+				<a href="#">
+					<span style="background-image: url({% static 'web/img/app/mi01.png);" class="icon"></span>
+					<span class="name">品牌日</span>
+				</a>
+			</div>
+			<div class="item">
+				<a href="#">
+					<span style="background-image: url({% static 'web/img/app/mi02.png);" class="icon"></span>
+					<span class="name">分期免息购</span>
+				</a>
+			</div>
+			<div class="item">
+				<a href="#">
+					<span style="background-image: url({% static 'web/img/app/mi03.png);" class="icon"></span>
+					<span class="name">我的订单</span>
+				</a>
+			</div>
+			<div class="item">
+				<a href="#">
+					<span style="background-image: url({% static 'web/img/app/mi04.png);" class="icon"></span>
+					<span class="name">分类</span>
+				</a>
+			</div>
+		</div>
+	</div><!-- 移动端 分类导航 E-->
+	<!-- 移动端广告和推荐 -->
+	<div class="act-bar">
+		<a href="#"><img src="{% static 'web/img/app/mad1.jpg' %}"></a>
+	</div>
+	<div class="hipost card">
+		<div class="grids">
+			<div class="row orient-h tricol">
+				<div class="cell">
+					<a href="{% url 'web:detail' 1%}">
+						<img class="" src="{% static 'web/img/app/mtj1.jpg' %}">
+					</a>
+				</div>
+				<div class="cell">
+					<a href="{% url 'web:detail' 1%}">
+						<img class="" src="{% static 'web/img/app/mtj2.jpg' %}">
+					</a>
+				</div>
+				<div class="cell">
+					<a href="{% url 'web:detail' 1%}">
+						<img class="" src="{% static 'web/img/app/mtj3.jpg' %}">
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 移动端广告和推荐 -->
+
+
+	<!-- 头部 侧导航 -->
+	<ul class="home-category hidden-xs hidden-sm" id="homeCategory">
+		{% for cc in typelist %}
+		<li class="home-category-item">
+			<a href="{% url 'web:list' %}?tid={{ cc.id }}" class="home-category-link" pid="{{cc.id}}">
+				{{cc.name}}
+			</a>
+			
+			<div class="home-category-child clearfix">
+				
+				<div class="home-category-child-list clearfix">
+					{% for ff in cc.cca %}
+					<a href="{% url 'web:list' %}?tid={{ ff.id }}" class="home-category-child-item title">
+						{{ff.name}}
+					</a>
+					{% for xx in ff.good%}
+					<a class="home-category-child-item" href="{% url 'web:detail' xx.id%}" target="_blank">
+						<img class="home-category-child-img" src="/static/goods/s_{{ xx.picname }}" height="40"
+							width="40">
+						<div class="home-category-child-text">{{xx.goods}}</div>
+					</a>
+					{% endfor %}
+					{% endfor %}
+				</div>
+			</div>
+			
+		</li>
+		{% endfor %}
+	</ul>
+	<!-- 头部 侧导航 E -->
+		<!-- 头部 豆腐块 -->
+		<div class="headDoufu hidden-xs hidden-sm">
+			<div class="container">
+				<ul class="clearfix home-server">
+					<li class="home-server-item home-server-icons clearfix">
+						<a class="home-server-icon" href="#">
+							<i class="glyphicon glyphicon-road"></i> M码通道
+						</a>
+						<a class="home-server-icon" href="#">
+							<i class="glyphicon glyphicon-retweet"></i> 以旧换新
+						</a>
+						<a class="home-server-icon" href="#">
+							<i class="glyphicon glyphicon-heart-empty"></i> 魅族意外保
+						</a>
+						<a class="home-server-icon" href="#">
+							<i class="glyphicon glyphicon-list-alt"></i> 回购单查询
+						</a>
+					</li>
+					{% for ls in list1 %}
+					<li>
+						<a href="{% url 'web:detail' ls.id %}" class="ml8">
+							<img src=" static/goods/m_{{ ls.picname }}" alt="">
+						</a>
+					</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<!-- 头部 豆腐块 E-->
+		<!-- 热卖推荐 -->
+		<div class="home-hot">
+			<div class="container">
+				<div id="carousel-example-generic2" class="carousel slide headhot-cont" data-ride="carousel">
+					<div class="home-hot-header clearfix">
+						<div class="hhh-title">热品推荐</div>
+					</div>
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner home-hot-content" role="listbox">
+						<ul class="item active clearfix home-hot-list">
+							{% for hotgds in goodshot1%}
+							<li class="home-product">
+								<a href="{% url 'web:detail' hotgds.id%}" target="_blank">
+									<img src="/static/goods/{{ hotgds.picname }}" class="home-product-img">
+									<div class="caption">
+										<h4 class="home-product-title">{{hotgds.goods}}</h4>
+										<h6 class="home-product-subtitle red">
+											<span class="mb-hh-red">月销</span>
+											累计超{{hotgds.num}}台
+										</h6>
+										<p class="home-product-bottom">
+											<span class="home-product-price">{{hotgds.price}}
+												<span class="home-product-start-tag">起</span>
+											</span>
+											<!-- <span class="home-product-price origin">999</span>-->
+										</p>
+										<div class="home-product-sign" style="background-color: #f59646;">
+											热卖
+										</div>
+									</div>
+								</a>
+							</li>
+							{% endfor%}
+						</ul>
+
+						<ul class="item  clearfix">
+							{% for hotgds in goodshot2%}
+							<li class="home-product">
+								<a href="{% url 'web:detail' hotgds.id%}" target="_blank">
+									<img src="/static/goods/{{ hotgds.picname }}" class="home-product-img">
+									<div class="caption">
+										<h4 class="home-product-title">{{hotgds.goods}}</h4>
+										<h6 class="home-product-subtitle red">
+											<span class="mb-hh-red">月销</span>
+											累计超{{hotgds.num}}台
+										</h6>
+										<p class="home-product-bottom">
+											<span class="home-product-price">{{hotgds.price}}
+												<span class="home-product-start-tag">起</span>
+											</span>
+											<!-- <span class="home-product-price origin">999</span>-->
+										</p>
+										<div class="home-product-sign" style="background-color: #f59646;">
+											热卖
+										</div>
+									</div>
+								</a>
+							</li>
+							{% endfor%}
+						</ul>
+
+					</div>
+					<!-- Controls -->
+					<a class="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- 移动端结构 -->
+		<div class="card recommend">
+			<div class="hd">
+				<div class="tit">热品推荐</div>
+			</div>
+			<div class="grids clearfix">
+				<div class="bloc">
+					<a href="{% url 'web:detail' 1%}">
+						<div class="info">
+							<div class="intro">
+								<h3>魅蓝 5</h3>
+								<p class="comment">标配版限量出售</p>
+							</div>
+							<div class="price">
+								<span class="p-sale">¥699</span>
+							</div>
+						</div>
+						<div class="pic">
+							<img class="" src="{% static 'web/img/app/mhot1.png' %}">
+						</div>
+					</a>
+				</div>
+				<div class="bloc">
+					<a href="#">
+						<div class="info">
+							<div class="intro">
+								<h3>乐心ziva plus</h3>
+								<p class="sale-tag"><i>领券</i>新品有礼</p>
+							</div>
+							<div class="price">
+								<span class="p-sale">¥499</span>
+							</div>
+						</div>
+						<div class="pic">
+							<img class="" src="{% static 'web/img/app/mhot2.jpg' %}">
+						</div>
+					</a>
+				</div>
+				<div class="bloc">
+					<a href="#">
+						<div class="info">
+							<div class="intro">
+								<h3>魅族手环</h3>
+								<p class="comment">心率专家</p>
+							</div>
+							<div class="price">
+								<span class="p-sale">¥229</span>
+							</div>
+						</div>
+						<div class="pic">
+							<img class="" src="{% static 'web/img/app/mhot3.jpg' %}">
+						</div>
+					</a>
+				</div>
+				<div class="bloc">
+					<a href="#">
+						<div class="info">
+							<div class="intro">
+								<h3>魅蓝 A5</h3>
+								<p class="comment">享3期免息</p>
+							</div>
+							<div class="price">
+								<span class="p-sale">¥699</span>
+							</div>
+						</div>
+						<div class="pic">
+							<img class="" src="{% static 'web/img/app/mhot4.jpg' %}">
+						</div>
+					</a>
+				</div>
+				<div class="bloc">
+					<a href="#">
+						<div class="info">
+							<div class="intro">
+								<h3>电源适配器</h3>
+								<p class="comment">快速充电 安全无忧</p>
+							</div>
+							<div class="price">
+								<span class="p-sale">¥89</span>
+							</div>
+						</div>
+						<div class="pic">
+							<img class="" src="{% static 'web/img/app/mhot5.jpg' %}">
+						</div>
+					</a>
+				</div>
+			</div>
+		</div><!-- 移动端结构 E-->
+
+		<!-- 热卖推荐 E-->
+		<!-- 广告位1   -->
+		<div class="headAd hidden-xs hidden-sm">
+			<div class="container">
+				<a href="">
+					<img src="{% static 'web/img/mbad.jpg' %}" alt="">
+				</a>
+			</div>
+		</div><!-- 广告位1   E-->
+		<!-- 楼层板块 -->
+		<div class="home-floor">
+			<div class="container">
+				<!-- 手机楼层 -->
+				{% for cf in typelist %}
+				<div class="home-floor-content phone card ">
+					<div class="hd">
+						<h2 class="mbf-title tit">{{ cf.name }}</h2>
+					</div>
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs mbf-nav hidden-xs hidden-sm" role="tablist">
+						<li role="presentation" class="active">
+							<a href="#phone1" aria-controls="phone1" role="tab" data-toggle="tab">热销机型</a>
+						</li>
+					</ul>
+					<a class="mbf-more" href="{% url 'web:list' %}?tid={{ cf.id }}" target="_blank">更多&gt;</a>
+					<!-- Tab panes -->
+					<div class="tab-content home-floor-product">
+						<div role="tabpanel" class="tab-pane active" id="phone1">
+							<ul class="item active clearfix">
+								<li class="home-product first mmr10">
+									<div class="">
+										<img src="{% static 'web/img/phone2.jpg' %}">
+									</div>
+								</li>
+								{% for fphgd in cf.goo %}
+								<li class="home-product ">
+									<a href="{% url 'web:detail' fphgd.id%}" target="_blank">
+										<img src="/static/goods/m_{{ fphgd.picname }}" class="home-product-img">
+										<div class="caption">
+											<h4 class="home-product-title">{{fphgd.goods}}</h4>
+											<h6 class="home-product-subtitle red">
+												<span class="mb-hh-red">月销</span>
+												累计超{{fphgd.num}}台
+											</h6>
+											<p class="home-product-bottom">
+												<span class="home-product-price">{{fphgd.price}}
+													<span class="home-product-start-tag">起</span>
+												</span>
+											</p>
+										</div>
+									</a>
+								</li>
+								{% endfor%}
+							</ul>
+						</div>
+					</div>
+					<div class="home-floor-ad">
+						<a href="{% url 'web:detail' 3%}" target="_blank">
+							<img src="{% static 'web/img/ad2.jpg' %}" alt="" class="pc-floor-ad">
+							<img src="{% static 'web/img/app/mad2.jpg' %}" alt="" class="app-floor-ad">
+						</a>
+					</div>
+				</div> <!-- 手机楼层 E-->
+				{% endfor %}
+			</div>
+		</div>
+		<!-- 楼层板块 E-->
+</div>
+<!-- 主内容区域  E-->
+{%endblock%}

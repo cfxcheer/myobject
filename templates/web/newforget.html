@@ -1,0 +1,42 @@
+{% extends 'web/pwbase.html' %}
+
+{% block content %}
+<div id="content" class="content">
+    <div class="container-fluid">
+        <div class="banner-box hidden-xs hidden-sm">
+            <div class="container">
+                <form id="mainForm" method="post" class="main-form" action="{% url 'web:newforget' %}"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="tab-title" style="padding-bottom:10px;color:#00a7ea">
+                        忘记密码
+                    </div>
+                    <div class="logininfo">
+                        {{info}}
+                    </div>
+                    <div class="normalInput fieldInput passwd-box">
+                        <input class="inp-focus" name="password" required id="password" placeholder="密码" type="password">
+                      </div>
+                      <div class="hid-div">
+                        <label class="hidden hid-label" id="passVerify"></label>
+                      </div>
+                      <div class="normalInput fieldInput repass-box">
+                        <input class="inp-focus" required name="repassword" placeholder="重复密码" type="password">
+                      </div>
+                      <div class="hid-div">
+                        <label class="hidden hid-label" id="repassVerify"></label>
+                      </div>
+                      <div class="normalInput cycode-box fieldInput" id="cycode-box">
+                        <div class="cycode-selectbox">
+                            <input class="ipt-account inp-focus" required name="code" id="account"
+                                placeholder="验证码">
+                        </div>
+                    </div>
+                    <div class="hid-div">
+                        <label class="hidden hid-label" id="repassVerify"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </form>
+            </div>
+        </div>
+        {% endblock %}

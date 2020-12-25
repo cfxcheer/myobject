@@ -1,0 +1,38 @@
+{% extends 'web/pwbase.html' %}
+
+{% block content %}
+<div id="content" class="content">
+    <div class="container-fluid">
+        <div class="banner-box hidden-xs hidden-sm">
+            <div class="container">
+                <form id="mainForm" method="post" class="main-form" action="{% url 'web:reforget' %}"
+                    enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="tab-title" style="padding-bottom:10px;color:#00a7ea">
+                        忘记密码
+                    </div>
+                    <div class="logininfo">
+                        {{info}}
+                    </div>
+                    <div class="normalInput cycode-box fieldInput" id="cycode-box">
+                        <div class="cycode-selectbox">
+                            <input class="ipt-account inp-focus" required name="username" id="account"
+                                placeholder="用户名">
+                        </div>
+                    </div>
+                    <div class="hid-div">
+                        <label class="hidden hid-label" id="repassVerify"></label>
+                    </div>
+                    <div class="normalInput fieldInput email-box">
+                        <input class="inp-focus" name="email" placeholder="邮箱" title="email" required
+                            pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
+                            title="请输入正确的邮箱格式" type="text">
+                    </div>
+                    <div class="hid-div">
+                        <label class="hidden hid-label" id="emailVerify"></label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">确认</button>
+                </form>
+            </div>
+        </div>
+        {% endblock %}
