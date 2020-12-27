@@ -18,7 +18,7 @@ from web import views
 from web.views.index import index, lists1
 from django.contrib import admin
 from django.urls import path
-from web.views import index,cart,orders,vip
+from web.views import index,cart,orders,vip,viewsusers
 
 app_name = 'web' 
 
@@ -56,8 +56,13 @@ urlpatterns = [
     path('orders/insert$', orders.insert,name='orders_insert'), #执行订单添加操作
      # 会员中心
     path('vip/orders', vip.viporders,name='vip_orders'), #会员中心我的订单
+    path('vip/orderswait',vip.viporders2,name='vip_orderswait'),
+    path('vip/orderssd',vip.viporders3,name='vip_orderssd'),
     path('vip/odstate', vip.odstate,name='vip_odstate'), #修改订单状态（确认收货）
-    path('vip/viporders1',vip.viporders1,name='vip_orders1'),
+    path('vip/viporders1',vip.viporders1,name='vip_orders1'), # 我的回购单
+    path('member', viewsusers.member, name="member"), #个人中心页
+    path('memberdetail', viewsusers.memberdetail, name="memberdetail"),#个人中心修改页
+    path('memberchange', viewsusers.memberchange, name="memberchange"),#个人中心修改页
     #url(r'^vip/info$', vip.info,name='vip_info'), #会员中心的个人信息
     #url(r'^vip/update$', vip.update,name='vip_update'), #执行修改会员信息
     #url(r'^vip/resetps$', vip.resetps,name='vip_resetps'), #重置密码表单

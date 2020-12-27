@@ -1,0 +1,172 @@
+{% extends "web/base.html" %}
+{% load static %}
+
+{#追加当前页的css样式#}
+{%block mylink%}
+  <link rel="stylesheet" type="text/css" href="{% static 'web/css/member-detail.css' %}">
+{%endblock%}
+
+{# 加载主体内容 #}
+{%block content%}
+  
+<body class="">
+    	<!-- 主内容区域 -->
+    	<div class="mainbody member-detail member-detail-app">
+		<div class="container">
+			<form class="cEmail-bodyWrap"  method="post" action="{% url 'web:memberchange'%}">
+			{% csrf_token %}
+			<div class="col-md-12 col-xs-12 col-sm-12">
+				<!-- 页面导航 -->
+				<div id="navWrap" class="navWrap">
+					<ul class="nav">
+						<li id="accountManage"><a href="#" class="linkABlue">账号管理</a><div class="current"></div></li>
+					</ul>
+				</div>
+				<div class="topWrap clearfix">
+					<div class="top-leftWrap">
+						<img id="userImg" src="{% static 'web/img/member/m02.jpg'%}">
+					</div>
+					<div class="top-rightWrap clearfix">
+						<div id="nickNameTitle" class="lineWrap nickname">
+							<label id="nickName">
+							{{userlist.username}}
+							</label>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="mainWrap">
+					<div class="titleWrap grayBorderB grayBorderTop">
+						<div class="title-leftWrap">
+							<span>账号安全</span>
+						</div>
+						<div class="title-rightWrap">
+							<span class="infochange">修改信息</span>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="bodyWrap">
+						<!-- 修改用户名 -->
+						<!-- <div id="nameWrap" class="lineWrap WrapTop">
+							<div class="item-left">用户名</div>
+							<div class="item-middle" id="email-item-middle1">
+								<span id="current_name" class="email bold">{{userlist.name}}</span><br>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div id="changeEmailWrap" class="grayBorderB modify_content hidden" >
+							<div class="">
+								<span>修改用户名</span>
+							</div>
+							<div class="lineWrap">
+								<input value="{{ userlist.name }}" data-key="kapkey" name="name" id="" class="normalInput" maxlength="32" type="text">
+							</div>
+						</div> -->
+						<!-- 修改密码 -->
+						<div id="pwdWrap" class="lineWrap pwdWrapTop WrapTop">
+							<div class="item-left">密码</div>
+							<div class="item-middle"></div>
+							<div class="clear"></div>
+						</div>
+						<div id="changePasswordWrap" class="grayBorderB modify_content hidden">
+							<div class="cEmail-titleWrap">
+								<span>修改密码</span>
+							</div>
+							
+							<div class="lineWrap">
+								<div class="leftWrap">
+									<label class="leftLabel">新密码</label>
+								</div>
+								<input value="" name="passwd" id="ce-u-current_pwd" class="normalInput" maxlength="16" type="password">
+							</div>
+							<div class="lineWrap">
+								<div class="leftWrap">
+									<label class="leftLabel">再次密码</label>
+								</div>
+								<div class="normalInput">
+									<input value="" name="repasswd" id="ce-u-new_pwd1" maxlength="16" autocomplete="off" type="password">
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+						<!-- 修改密码 E-->
+						<!-- 修改邮箱 -->
+						<div id="emailWrap" class="lineWrap WrapTop">
+							<div class="item-left">邮箱</div>
+							<div class="item-middle" id="email-item-middle1">
+								<span id="current_email" class="email bold">{{userlist.email}}</span><br>
+								<span class="grayTip">已验证，可通过邮箱找回密码</span>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div id="changeEmailWrap" class="grayBorderB modify_content hidden" >
+							<div class="cEmail-titleWrap">
+								<span>修改邮箱</span>
+							</div>
+							<div class="lineWrap">
+								<input value="{{ userlist.email }}" data-key="kapkey" name="email" id="ce-u-bind_email" class="normalInput" maxlength="32" type="text">
+							</div>
+						</div>
+						
+						<!-- 修改邮箱 E-->
+						<!-- 修改手机号 -->
+						<div id="telWrap" class="lineWrap WrapTop">
+							<div class="item-left">手机号码</div>
+							<div class="item-middle" id="telModify">
+								<span id="current_phone" class="bold">{{userlist.phone}}</span><br>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div id="changePhoneWrap" class="grayBorderB modify_content hidden" >
+							<div class="cEmail-titleWrap">
+								<span>修改手机号</span>
+							</div>
+							<div class="lineWrap">
+								<input value="{{ userlist.phone }}" data-key="kapkey" name="phone" id="ce-u-bind_email" class="normalInput" maxlength="32" type="text">
+								<i class="i_icon">{{info}}</i>
+							</div>
+							<div class="lineWrap">
+								<label class="fleft">&nbsp;</label>
+								<button type="submit" class="btn btn-primary" id="changeSave">保存</button>
+								<button type="submit" class="btn btn-warning" id="changeCancel">取消</button>
+								<div class="clear"></div>
+							</div>
+						</div>
+						<!-- 修改手机号 E-->
+						<i class="i_icon">{{info}}</i>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>	
+	</div>
+    	<!-- 主内容区域 E-->
+	<script type="text/javascript">
+		//发送ajax请求
+		function doajax(memail,mphone){
+			$.ajax({
+				url: "/memberchange",
+				type: 'GET',
+				dataType: 'json',
+				data:{'memail':memail,'mphone':mphone},
+				error:function() {
+					alert("ajax加载失败！");
+				},
+			})
+		}
+		$('.infochange').click(function() {
+			var textBtn = $(this).text();
+			if(textBtn == '修改信息'){
+				$(this).text('取消修改');
+			}else{
+				$(this).text('修改信息');
+			}
+			$('#changePasswordWrap').toggleClass('hidden');
+			$('#changeEmailWrap').toggleClass('hidden');
+			$('#changePhoneWrap').toggleClass('hidden');
+			$('#pwdWrap').toggleClass('hidden');
+			$('#emailWrap').toggleClass('hidden');
+			$('#telWrap').toggleClass('hidden');
+		});
+	</script>
+{%endblock%}

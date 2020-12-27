@@ -29,6 +29,51 @@ def viporders(request):
     return render(request,"web/viporders.html",context)
 
 
+# 待发货
+def viporders2(request):
+    context = loadinfo(request)
+    mywhere=[]
+    # 获取当前用户的所有订单信息
+    odlist = Orders.objects.filter(uid=request.session['vipuser']['id']).order_by('-addtime')
+    # 遍历当前用户的所有订单，添加他的订单详情
+    for od in odlist:
+        if od.state == 0:
+            mywhere.append(od)
+
+    # 遍历每个商品详情，从Goods中获取对应的图片
+    for od in mywhere:
+        delist =  Detail.objects.filter(orderid=od.id)
+        for og in delist:
+            og.picname = Goods.objects.only('picname').get(id=og.goodsid).picname
+        od.detaillist = delist
+    # 将整理好的订单信息放置到模板遍历中
+    context['orderslist'] = mywhere
+    return render(request,"web/viporders2.html",context)
+
+
+# 已发货
+def viporders3(request):
+    context = loadinfo(request)
+    mywhere=[]
+    # 获取当前用户的所有订单信息
+    odlist = Orders.objects.filter(uid=request.session['vipuser']['id']).order_by('-addtime')
+    # 遍历当前用户的所有订单，添加他的订单详情
+    for od in odlist:
+        if od.state == 1:
+            mywhere.append(od)
+
+    # 遍历每个商品详情，从Goods中获取对应的图片
+    for od in mywhere:
+        delist =  Detail.objects.filter(orderid=od.id)
+        for og in delist:
+            og.picname = Goods.objects.only('picname').get(id=og.goodsid).picname
+        od.detaillist = delist
+    # 将整理好的订单信息放置到模板遍历中
+    context['orderslist'] = mywhere
+    return render(request,"web/viporders3.html",context)
+
+
+# 我的回购单
 def viporders1(request):
     context = loadinfo(request)
     mywhere=[]
@@ -65,3 +110,4 @@ def odstate(request):
     except Exception as err:
         print(err)
         return HttpResponse("订单处理失败！")
+

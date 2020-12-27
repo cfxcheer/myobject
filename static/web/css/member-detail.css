@@ -1,0 +1,553 @@
+.container{
+    width: 1000px;
+}
+.nav > li > a{
+    background-color: #fff;
+}
+.navWrap {
+    border-bottom: 1px solid #e4e7e9;
+    height: 58px;
+}
+#nickName {
+    float: left;
+    font-size: 18px;
+}
+.top-leftWrap {
+    float: left;
+    height: 100px;
+    position: relative;
+    width: 100px;
+}
+.navWrap .nav {
+    display: block;
+    float: left;
+    line-height: 58px;
+}
+.navWrap .nav li {
+    display: inline-block;
+    float: left;
+    height: 100%;
+    margin-right: 40px;
+    position: relative;
+    width: 100px;
+}
+.navWrap .nav li a {
+    display: inline-block;
+    font-size: 16px;
+    height: 56px;
+    text-align: center;
+    width: 100%;
+}
+.navWrap .nav .current {
+    background-color: #1daeed;
+    height: 2px;
+    margin: 0 auto;
+    overflow: hidden;
+    width: 100px;
+}
+mainWrap {
+    width: 800px;
+}
+.titleWrap {
+    font-size: 18px;
+    height: 72px;
+    line-height: 72px;
+}
+.title-leftWrap {
+    float: left;
+}
+.title-rightWrap {
+    float: right;
+}
+.mainWrap .lineWrap {
+    height: 58px;
+}
+.item-left {
+    float: left;
+    height: 100%;
+    width: 115px;
+}
+.item-middle {
+    float: left;
+    height: 100%;
+}
+.item-right {
+    float: right;
+    height: 100%;
+}
+#changeEmailWrap-unactive, #bindEmailWrap, #changeTelWrap-unactive, #bindTelWrap {
+    padding-left: 17px;
+}
+.cEmail-titleWrap, .bindEmail-titleWra, .cTel-titleWrap, .bindTel-titleWrap, .bindEmail-titleWrap, .setQuestion-titleWrap, .cQuestion-titleWrap {
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+}
+.cTel-bodyWrap {
+    margin-left: 104px;
+}
+.bodyWrap form label {
+    display: inline-block;
+    width: 114px;
+}
+a.save_form, a.cancel_form {
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    width: 158px;
+}
+a.cancel_form {
+    margin-left: 25px;
+}
+#changeEmailWrap-unactive, #bindEmailWrap, #changeTelWrap-unactive, #bindTelWrap, #changeTelWrap-code {
+    margin-bottom: 30px;
+}
+#kapkey, #ce-u-passwordvalidate_code, #ce-u-passwordvalidate_codeone, #ce-u-passwordvalidate_codetwo, #kapkeyEmail, #kapkeyTelNew {
+    border: medium none;
+    font-size: 16px;
+    height: 22px;
+    line-height: 22px;
+    outline: medium none;
+    padding: 14px 0;
+    width: 220px;
+}
+.get_kapkey {
+    border: medium none;
+    display: inline-block;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    outline: medium none;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    white-space: nowrap;
+    width: 80px;
+}
+.kapkey_requested {
+    left: 250px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+}
+#flyme {
+    height: 100%;
+    width: 220px;
+}
+span.flymeSpan {
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+}
+.form-line {
+    border-left: 1px solid #dadada;
+    color: #d9d9d9;
+    display: inline-block;
+    height: 40px;
+    position: absolute;
+    right: 100px;
+    top: 5px;
+}
+.current_email {
+    border: 0 solid #dadada;
+    height: 40px;
+    line-height: 40px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.center {
+    text-align: center;
+}
+.questionSelect {
+    height: 52px;
+    line-height: 52px;
+    width: 342px;
+}
+.ftipright {
+    margin-right: 30px;
+}
+.username {
+    border: medium none;
+    font-size: 16px;
+    height: 20px;
+    line-height: 20px;
+    outline: medium none;
+    width: 220px;
+}
+.leftLabel {
+    display: inline-block;
+    width: 96px;
+}
+.leftWrap {
+    float: left;
+    height: 52px;
+    line-height: 52px;
+}
+.questionlineWrap, #currentEmail .leftWrap {
+    height: 40px;
+}
+#currentEmail {
+    height: 50px;
+}
+.questionlineWrap .leftWrap, #currentEmail .leftLabel {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+.fBtnleft {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#editSave, #editCancel, #newSave, #newCancel {
+    margin-bottom: 0;
+}
+.fTipleft {
+    margin-left: 19px;
+}
+.fTipValidate {
+    margin-right: 15px;
+}
+.normalInput span.error {
+    font-size: 14px;
+    left: 340px;
+    position: absolute;
+    top: 15px;
+    white-space: nowrap;
+}
+#nickNameCon form {
+    width: 880px;
+}
+#nickNameCon form span {
+    display: inline-block;
+    height: 52px;
+    line-height: 52px;
+    vertical-align: middle;
+}
+.topWrap {
+    margin: 20px auto 20px 17px;
+}
+.topWrap .top-leftWrap:hover a {
+    color: #fff;
+    display: block;
+}
+.modifyIconTip {
+    bottom: 0;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    height: 20px;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+    z-index: 200;
+}
+.modifyIconTip-bg {
+    background: #000 none repeat scroll 0 0;
+    bottom: 0;
+    cursor: pointer;
+    display: none;
+    height: 20px;
+    left: 0;
+    opacity: 0.2;
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+    z-index: 100;
+}
+.ftop {
+    margin-top: 10px;
+}
+.btnField {
+    float: left;
+    height: 52px;
+    position: relative;
+    width: 342px;
+}
+#setQuestionSave {
+    display: block;
+    margin: 0 auto;
+}
+.grayTip {
+    display: inline-block;
+    height: 50px;
+    vertical-align: top;
+    width: 100%;
+}
+.NewFunnyName {
+    border: 0 solid #dadada;
+    float: left;
+    padding: 0;
+    width: 115px;
+}
+#NewFunnyName {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 11px;
+    margin-top: 14px;
+}
+#setUserNameWrap {
+    height: 30px;
+}
+a.getFunnyNameTitle:hover {
+    background-color: #2b8cc5;
+    color: #fff;
+}
+.nameWrapTop {
+    height: 30px;
+    margin-top: 10px;
+}
+.nickNameTitle {
+    margin-top: 5px;
+}
+
+.nickNameCon {
+    margin-bottom: 0;
+}
+#flyme, #kapkey, #kapkeyEmail {
+    height: 20px;
+    line-height: 20px;
+    padding: 14px 0;
+}
+#newnickName, #ce-u-current_pwd, #ce-u-active_email, #ce-u-cTelNew, #ce-u-passwordNew, #ce-u-new_pwd, #ce-u-bind_email, #setQuestion_pwd, #qanswer1, #qanswer2, #answer1, #answer2, #resetanswer1, #resetanswer2, #ce-u-new_pwd1, #ce-u-new_pwd2 {
+    height: 40px;
+    line-height: 20px;
+}
+#nickNameCon, #setaccount {
+    clear: both;
+}
+#setTelCheckPass {
+    width: 770px;
+}
+.flymeTip {
+    color: red;
+    padding-left: 0;
+}
+#pwdBtn {
+    margin-bottom: 10px;
+    margin-top: 13px;
+}
+.pwdBtn, .pwdBtnShow {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    height: 30px;
+    margin-right: 5px;
+    outline: medium none;
+    overflow: hidden;
+    position: relative;
+    width: 30px;
+}
+.pwdBtn i {
+    background-position: -60px -92.5px;
+}
+.pwdBtnShow i {
+    background-position: -30px -93px;
+}
+#ce-u-new_pwd1, #ce-u-new_pwd2 {
+    float: left;
+    line-height: 22px;
+    padding-left: 0;
+    width: 255px;
+}
+.normalInput {
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.pwd_position {
+    height: 50px;
+    margin-top: 25px;
+}
+.grayBorderTop {
+    border-top: 0 solid #f2f2f2;
+}
+.red {
+    color: red;
+}
+.orange {
+    color: orange;
+}
+.green {
+    color: green;
+}
+.top-rightWrap {
+    float: left;
+    padding-left: 20px;
+    width: 80%;
+}
+.dropdown {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #dadada;
+    color: #474747;
+    font-size: 16px;
+    height: 52px;
+    line-height: 52px;
+    margin: 0;
+    outline: medium none;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: middle;
+    width: 342px;
+}
+.dropdown_arrow {
+    border-color: #777 transparent transparent;
+    border-style: solid;
+    border-width: 5px;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    position: absolute;
+    width: 0;
+}
+.dropdown_menu {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fff none repeat scroll 0 0;
+    border-color: currentcolor #a6c1d7 #a6c1d7;
+    border-image: none;
+    border-style: none solid solid;
+    border-width: 0 1px 1px;
+    box-shadow: 0 5px 10px #ccc;
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+.dropdown_menu li {
+    background: #fff none repeat scroll 0 0;
+    color: #333;
+    cursor: pointer;
+    height: 30px;
+    line-height: 30px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0 0 0 10px;
+    text-align: left;
+}
+.dropdown_menu li.disable {
+    color: #bbb;
+}
+.dropdown_menu li.cursor {
+    background: #eee none repeat scroll 0 0;
+}
+.alertDialogContent .normalInput {
+    border: 1px solid #dadada;
+    color: #474747;
+    display: inline-block;
+    font-size: 16px;
+    height: 42px;
+    line-height: 22px;
+    margin: 10px 0 10px -7px;
+    outline: medium none;
+    overflow: hidden;
+    padding: 0 0;
+    position: relative;
+    text-align: left;
+    width: 320px;
+}
+.alertDialogContent .normalInput .kapkey {
+    border: medium none;
+    font-size: 16px;
+    outline: medium none;
+    overflow: hidden;
+    width: 220px;
+}
+.alertDialogContent .normalInput #imgKey {
+    float: right;
+    height: 36px;
+    margin-left: 13px;
+    overflow: hidden;
+    position: absolute;
+    top: 14px;
+    width: 88px;
+}
+.cycode-box {
+}
+.show-cycode input[name="phone"] {
+    height: auto;
+    line-height: 40px;
+    width: 78%;
+}
+#kapkeyTelOld {
+    width: 220px;
+}
+#kapkeyTel-check-phone {
+    width: 220px;
+}
+.tip-content {
+    background-color: #387aff;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    color: white;
+    height: 56px;
+    margin-top: 12px;
+    width: 250px;
+}
+.tip-span-msg {
+    float: left;
+    font-size: 14px;
+    height: 36px;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 208px;
+}
+.tip-content-hide {
+    display: none;
+}
+.tip-header-overflow-show {
+    overflow: visible;
+}
+.tip-pub-show {
+    background-color: red;
+    border-radius: 2px;
+    color: white;
+    display: inline-block;
+    padding-right: 2px;
+    width: 10px;
+}
+#flymeFooter {
+    position: absolute;
+}
+#err-bind-phone-tips {
+    display: inline;
+    margin-left: 20px;
+    margin-top: 18px;
+    position: absolute;
+}
+.normalInput{
+    position: relative;
+    display: inline-block;
+    padding: 0px;
+    width: 320px;
+    height: 42px;
+    line-height:42px;
+    font-size: 14px;
+    border: 1px solid #dadada;
+    outline: none;
+    color: #474747;
+    *float: left;
+    zoom: 1;
+    overflow: hidden;
+    *line-height: 50px;
+}
+div.normalInput{
+    overflow:visible;
+}
+.normalInput input{
+    font-size: 14px;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border:none;
+}
+#ce-u-new_pwd1, #ce-u-new_pwd2 {
+    float: left;
+    line-height: 22px;
+    padding-left: 0;
+    width: 255px;
+}
+.infochange{
+	cursor:pointer;
+	color:#337ab7;
+}
